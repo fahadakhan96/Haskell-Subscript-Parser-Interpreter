@@ -1,0 +1,28 @@
+name: subscript-parser
+
+# The packages we depend on
+dependencies:
+- base             # For build-in functions like `length`
+- containers       # For Data.Map
+- tasty            # The test framework tasty
+- tasty-hunit      # unit-testing with tasty
+
+# The basic library with the interpreter
+library:
+  source-dirs: src
+  exposed-modules:
+    - SubsParser
+    - SubsAst
+
+# A simple command-line driver, that uses the library
+executable:
+  main: Main.hs
+  source-dirs: src
+
+# The test-suite
+tests:
+  my-test-suite:
+    main: Test.hs
+    source-dirs: tests
+    dependencies:
+    - subscript-parser

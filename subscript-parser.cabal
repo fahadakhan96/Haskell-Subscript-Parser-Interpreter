@@ -1,0 +1,63 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.31.0.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: 53eeecc5c716cdce0fad8107885f943d5a43f771d7f3a1ca2d74fe33d0ffc62f
+
+name:           subscript-parser
+version:        0.0.0
+build-type:     Simple
+
+library
+  exposed-modules:
+      SubsParser
+      SubsAst
+  other-modules:
+      Interpreter.Impl
+      Main
+      Parser.Impl
+      SubsInterpreter
+      Paths_subscript_parser
+  hs-source-dirs:
+      src
+  build-depends:
+      base
+    , containers
+    , tasty
+    , tasty-hunit
+  default-language: Haskell2010
+
+executable subscript-parser
+  main-is: Main.hs
+  other-modules:
+      Interpreter.Impl
+      Parser.Impl
+      SubsAst
+      SubsInterpreter
+      SubsParser
+      Paths_subscript_parser
+  hs-source-dirs:
+      src
+  build-depends:
+      base
+    , containers
+    , tasty
+    , tasty-hunit
+  default-language: Haskell2010
+
+test-suite my-test-suite
+  type: exitcode-stdio-1.0
+  main-is: Test.hs
+  other-modules:
+      Paths_subscript_parser
+  hs-source-dirs:
+      tests
+  build-depends:
+      base
+    , containers
+    , subscript-parser
+    , tasty
+    , tasty-hunit
+  default-language: Haskell2010
